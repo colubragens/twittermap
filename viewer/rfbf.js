@@ -44,5 +44,7 @@ function start(url, title) {
   viewer.updateCell = updateCell;
   for(var i = 0; i < cellNum; i++)
     viewer.cellList.push(makeRfbfCell());
-  setInterval("viewer.queueStep()", 0);
+  var timer = setInterval("viewer.queueStep()", 0);
+  $("body").toggle(function() { clearInterval(timer); $("body").css("background", "lightgray"); },
+                   function() { timer = setInterval("viewer.queueStep()", 0); $("body").css("background", "cornsilk"); });
 }

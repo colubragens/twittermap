@@ -163,7 +163,7 @@ function Viewer() {
   }
 };
 
-cellNum = 400;
+cellNum = 500;
 cellStep = 50;
 queueMax = 1000;
 opacMax = 5;
