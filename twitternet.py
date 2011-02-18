@@ -5,16 +5,16 @@ from vectornet.utils import ProducingNode, BasicNode, ACCEPTED
 from secrets import TWITTER_USER, TWITTER_PASSWORD
 
 rootLogger = logging.getLogger('')
-rootLogger.setLevel(25)
-logger = logging.getLogger(socket.gethostname())
+#rootLogger.setLevel(25)
+logger = rootLogger #logging.getLogger(socket.gethostname())
 #logger.addHandler(logging.FileHandler('log'))
 
-handler = None
+#handler = None
 def log(obj, msg):
-    global handler
-    if handler is None:
-        handler = logging.StreamHandler(sys.stdout)
-        logger.addHandler(handler)
+#    global handler
+#    if handler is None:
+#        handler = logging.StreamHandler(sys.stdout)
+#        logger.addHandler(handler)
     logger.log(25, '\033[1;31m%s\033[0m: %s' % (obj.node['name'], msg))
 
 class OneToOneNode(BasicNode): # FIIK, but it doesn't work otherwise (desyncs or... something)
